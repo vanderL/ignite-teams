@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
+
+import { Header } from '@components/Header';
 
 import * as Sc from './styles'
 
 export default function Groups() {
   return (
     <Sc.Container>
-      <StatusBar style="light" />
+      <Header />
     </Sc.Container>
   );
 }
