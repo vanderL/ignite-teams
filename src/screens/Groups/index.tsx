@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { FlatList } from 'react-native';
 
 import * as Sc from './styles'
+import { Button } from '@components/Button/Button';
 
 export default function Groups() {
   const [groups, setGroups] = useState<string[]>([]);
@@ -33,6 +34,10 @@ export default function Groups() {
         ListEmptyComponent={() => (
           <ListEmpty message='Que tal cadastrar a primeira turma?' />
         )}
+      />
+
+      <Button
+        title='Criar nova turma'
       />
 
 
