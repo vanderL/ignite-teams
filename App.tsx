@@ -4,7 +4,8 @@ import { StatusBar } from 'expo-status-bar';
 
 import theme from '@theme/index';
 import Groups from '@screens/Groups';
-import { Loading } from '@components/Loading';
+import { NewGroup } from '@screens/NewGroup';
+// import { Loading } from '@components/Loading';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,7 +18,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <StatusBar style="light" />
 
-        {fontsLoaded ? <Groups /> : <Loading />}
+        {!fontsLoaded ? <Groups /> : <NewGroup />}
       </ThemeProvider>
     </>
   );

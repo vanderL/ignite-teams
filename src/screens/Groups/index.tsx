@@ -38,6 +38,7 @@ export default function Groups() {
 
       <Button
         title='Criar nova turma'
+        onPress={() => console.log('hi')}
       />
 
 
