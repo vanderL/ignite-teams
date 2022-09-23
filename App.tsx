@@ -18,7 +18,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <StatusBar style="light" />
 
-        {!fontsLoaded ? <Groups /> : <NewGroup />}
+        {fontsLoaded ? <NewGroup /> : <Groups />}
       </ThemeProvider>
     </>
   );
