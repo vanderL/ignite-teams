@@ -10,7 +10,7 @@ import * as Sc from './styles'
 import { Button } from '@components/Button/Button';
 
 export default function Groups() {
-  const [groups, setGroups] = useState<string[]>([]);
+  const [groups, setGroups] = useState<string[]>(['turminha do bolinha']);
 
   return (
     <Sc.Container>
