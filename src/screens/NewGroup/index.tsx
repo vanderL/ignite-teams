@@ -1,8 +1,9 @@
+import * as Sc from './styles';
+
 import { Button } from '@components/Button/Button';
 import { Header } from '@components/Header';
 import { Hightlight } from '@components/Hightlight';
 import { Input } from '@components/Input';
-import * as Sc from './styles';
 
 
 export function NewGroup() {

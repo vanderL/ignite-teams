@@ -1,12 +1,12 @@
+import { useState } from 'react';
+import { FlatList } from 'react-native';
+
+import * as Sc from './styles'
 
 import { GroupCard } from '@components/GroupCard';
 import { Header } from '@components/Header';
 import { ListEmpty } from '@components/ListEmpty';
 import { Hightlight } from '@components/Hightlight';
-import { useState } from 'react';
-import { FlatList } from 'react-native';
-
-import * as Sc from './styles'
 import { Button } from '@components/Button/Button';
 
 export default function Groups() {
@@ -34,6 +34,7 @@ export default function Groups() {
         ListEmptyComponent={() => (
           <ListEmpty message='Que tal cadastrar a primeira turma?' />
         )}
+        showsVerticalScrollIndicator={false}
       />
 
       <Button

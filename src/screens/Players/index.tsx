@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-
 import { FlatList } from 'react-native';
 
 import * as Sc from './styles';

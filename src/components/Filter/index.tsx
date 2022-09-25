@@ -1,4 +1,5 @@
 import { TouchableOpacityProps } from 'react-native';
+
 import * as Sc from './styles';
 
 type Props = TouchableOpacityProps & Sc.FilterStyleProps & {

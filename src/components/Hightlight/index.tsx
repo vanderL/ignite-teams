@@ -1,6 +1,5 @@
 import * as Sc from './styles';
 
-
 type Props = {
   title: string;
   subtitle: string;
