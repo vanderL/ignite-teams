@@ -1,11 +1,17 @@
 import { useMemo, useState } from 'react';
+
 import { FlatList } from 'react-native';
+
+import * as Sc from './styles';
+
 import { ButtonIcon } from '@components/ButtonIcon';
 import { Filter } from '@components/Filter';
 import { Header } from '@components/Header';
 import { Hightlight } from '@components/Hightlight';
 import { Input } from '@components/Input';
-import * as Sc from './styles';
+import { PlayerCard } from '@components/PlayerCard';
+import { ListEmpty } from '@components/ListEmpty';
+import { Button } from '@components/Button/Button';
 
 export function Players() {
   const [team, setTeam] = useState('TIme A');
@@ -56,8 +62,33 @@ export function Players() {
 
       </Sc.HeaderList>
 
+      <FlatList
+        data={players}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <PlayerCard
+            name={item}
+            onRemove={() => console.log(item)}
+          />
+        )}
+        ListEmptyComponent={() => (
+          <ListEmpty
+            message='Sem jogadores nesse time'
+          />
+        )}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={
+          [
+            { paddingBottom: 100 },
+            players.length === 0 && { flex: 1 }
+          ]
+        }
+      />
 
-
+      <Button
+        title='Remover Turma'
+        type="SECONDARY"
+      />
     </Sc.Container>
   )
 }
