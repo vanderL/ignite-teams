@@ -3,9 +3,10 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/
 import { StatusBar } from 'expo-status-bar';
 
 import theme from '@theme/index';
-import Groups from '@screens/Groups';
-import { NewGroup } from '@screens/NewGroup';
-// import { Loading } from '@components/Loading';
+// import Groups from '@screens/Groups';
+import { Players } from '@screens/Players';
+// import { NewGroup } from '@screens/NewGroup';
+import { Loading } from '@components/Loading';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,7 +19,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <StatusBar style="light" />
 
-        {fontsLoaded ? < Groups /> : <NewGroup />}
+        {fontsLoaded ? < Players /> : <Loading />}
       </ThemeProvider>
     </>
   );
