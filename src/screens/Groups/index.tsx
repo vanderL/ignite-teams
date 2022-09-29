@@ -9,7 +9,7 @@ import { ListEmpty } from '@components/ListEmpty';
 import { Hightlight } from '@components/Hightlight';
 import { Button } from '@components/Button/Button';
 
-export default function Groups() {
+export function Groups() {
   const [groups, setGroups] = useState<string[]>(['turminha do bolinha']);
 
   return (
