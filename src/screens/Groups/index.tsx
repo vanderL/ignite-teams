@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
-// import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { useNavigation } from '@react-navigation/native'
 
 import * as Sc from './styles'
 
@@ -9,9 +9,18 @@ import { Header } from '@components/Header';
 import { ListEmpty } from '@components/ListEmpty';
 import { Hightlight } from '@components/Hightlight';
 import { Button } from '@components/Button/Button';
-import { useNavigation } from '@react-navigation/native';
 
-// type Props = NativeStackNavigationProp<RootParamList, 'groups'>
+// type RootParamList = {
+//   groups: undefined;
+//   new: undefined;
+//   players: {
+//     group: string;
+//   }
+// }
+
+// type Props = {
+//   navigation: NativeStackNavigationProp<RootParamList, 'groups'>
+// }
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>(['turminha do bolinha']);
