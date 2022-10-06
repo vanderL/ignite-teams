@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+// import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 
 import * as Sc from './styles'
 
@@ -8,9 +9,18 @@ import { Header } from '@components/Header';
 import { ListEmpty } from '@components/ListEmpty';
 import { Hightlight } from '@components/Hightlight';
 import { Button } from '@components/Button/Button';
+import { useNavigation } from '@react-navigation/native';
+
+// type Props = NativeStackNavigationProp<RootParamList, 'groups'>
 
 export function Groups() {
   const [groups, setGroups] = useState<string[]>(['turminha do bolinha']);
+
+  const navigation = useNavigation();
+
+  function handleNewGroup() {
+    navigation.navigate('new')
+  }
 
   return (
     <Sc.Container>
@@ -39,7 +49,7 @@ export function Groups() {
 
       <Button
         title='Criar nova turma'
-        onPress={() => console.log('hi')}
+        onPress={handleNewGroup}
       />
 
 
