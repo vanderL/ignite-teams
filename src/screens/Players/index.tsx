@@ -1,7 +1,6 @@
-import { useMemo, useState, useEffect } from 'react';
-import { FlatList } from 'react-native';
+import { useMemo, useState, useEffect, useRef } from 'react';
+import { FlatList, TextInput, Alert } from 'react-native';
 import { useRoute } from '@react-navigation/native';
-import { Alert } from 'react-native'
 
 import * as Sc from './styles';
 
@@ -28,6 +27,8 @@ export function Players() {
   const [team, setTeam] = useState<string>('TIme A');
   const [players, setPlayers] = useState<PlayerStorageDTO[]>([]);
 
+  const newPlayerNameInputRef = useRef<TextInput>(null);
+
   const route = useRoute();
   const { group } = route.params as RouteParams;
 
@@ -48,7 +49,7 @@ export function Players() {
     try {
 
       await playerAddByGroup(newPlayer, group);
-      fetchPlayersByTeam()
+      fetchPlayersByTeam();
 
     } catch (error) {
       if (error instanceof AppError) {
@@ -57,6 +58,9 @@ export function Players() {
         console.log(error);
         Alert.alert('Nova pessoa', 'Não foi possivel adicionar');
       }
+    } finally {
+      newPlayerNameInputRef.current?.blur();
+      setNewPlayerName('');
     }
   }
 
@@ -86,9 +90,13 @@ export function Players() {
 
       <Sc.Form>
         <Input
+          inputRef={newPlayerNameInputRef}
           placeholder='Nome da pessoa'
+          value={newPlayerName}
           autoCorrect={false}
           onChangeText={setNewPlayerName}
+          onSubmitEditing={handleAddPlayer}
+          returnKeyType="done"
         />
         <ButtonIcon
           icon='add'
