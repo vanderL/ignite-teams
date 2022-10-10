@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import * as Sc from './styles';
 
 import { Button } from '@components/Button/Button';
@@ -7,6 +8,12 @@ import { Input } from '@components/Input';
 
 
 export function NewGroup() {
+  const navigation = useNavigation();
+
+  function handleNew() {
+    navigation.navigate('players', { group: 'Rocket' })
+  }
+
   return (
     <Sc.Container>
       <Header
@@ -26,7 +33,7 @@ export function NewGroup() {
         <Button
           title='Criar'
           style={{ marginTop: 20 }}
-          onPress={() => console.log('vai')}
+          onPress={handleNew}
         />
       </Sc.Content>
     </Sc.Container>
